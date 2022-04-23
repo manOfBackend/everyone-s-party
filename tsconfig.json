@@ -22,5 +22,5 @@
     }
   },
   "exclude": ["./node_modules", "*.js"],
-  "include": [".eslintrc.js", ".babelrc", "./src", "./src/types.d.ts", "./src/config.d.ts"]
+  "include": ["./src", "./src/types.d.ts", "./src/config.d.ts"]
 }
