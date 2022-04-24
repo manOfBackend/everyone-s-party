@@ -1,11 +1,18 @@
 declare global {
   interface Post {
-    id: string;
+    newsId: string;
+    contentId: string;
     title: string;
-    writer: string;
-    content: string;
+    cpId: number;
+    imageUrl: string;
+    contentUrl: string;
+    reqDt: number;
+    modiDt: number;
+    status: string;
+    summary: string;
+    searchId: string;
+    commentCnt: number;
   }
-
 }
 
 export {};
