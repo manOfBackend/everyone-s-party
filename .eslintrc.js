@@ -21,6 +21,7 @@ module.exports = {
   },
   plugins: ['prettier', 'react', '@typescript-eslint'],
   rules: {
+    'linebreak-style': 0,
     'react/function-component-definition': [
       2,
       {

@@ -16,10 +16,15 @@ router.render = function (req, res) {
     res.jsonp({
       posts: res.locals.data,
     });
-  } else {
+  } else if (req._parsedUrl.pathname === '/login') {
+    res.jsonp({
+      login: res.locals.data,
+    });
+  }  
+  else {
     res.jsonp(res.locals.data);
   }
 };
-server.listen(SERVER_PORT || 3000, () => {
+server.listen(SERVER_PORT || 3001, () => {
   console.log('JSON Server is running');
 });

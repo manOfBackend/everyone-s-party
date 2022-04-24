@@ -8,7 +8,6 @@ function* fetchPostsSaga({ payload }: { payload: PostsRequestBody }) {
   const { fetchPosts } = Actions.postActions;
   try {
     const response: PostsResponseBody = yield call(API.posts, payload);
-
     yield put(fetchPosts.success(response));
   } catch (error) {
     yield put(fetchPosts.failure(401));
