@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route, Routes as ReactRouterRoutes } from 'react-router-dom';
+import { Navigate, Route, Routes as ReactRouterRoutes } from 'react-router-dom';
 import Board from './pages/Board';
 
 const App = () => (
   <ReactRouterRoutes>
     <Route path="/" element={<Board />} />
-    {/* <Route path="*" element={<Navigate replace to="/board" />} /> */}
+    <Route path="*" element={<Navigate replace to="/" />} />
   </ReactRouterRoutes>
 );
 

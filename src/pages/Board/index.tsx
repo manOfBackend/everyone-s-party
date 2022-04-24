@@ -1,21 +1,33 @@
-import { useDispatch } from '@src/Redux';
-import React from 'react';
-import { Actions } from '../../Redux';
+import Post from '@src/components/atoms/Post';
+import { useDispatch, useSelector } from '@src/Redux';
+import React, { useEffect } from 'react';
+import Actions from '../../Redux/src/actions';
 
 const Board = () => {
-  const a = '안녕 리dd액트?';
+  const posts = useSelector((state) => state.postReducer.posts);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(Actions.postActions.fetchPosts.request({ page: 1 }));
+  }, [dispatch]);
+
   return (
-    <div>
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(Actions.postActions.fetchPosts.request({ page: 1 }));
-        }}
-      >
-        눌러보세요.
-      </button>
+    <div className="block">
+      <div className="relative mt-0 py-5 px-4 rounded-lg">
+        <ul className="-my-2">
+          {
+            posts?.map((post) => (
+              <Post
+                key={post.newsId}
+                imageUrl={post.imageUrl}
+                title={post.title}
+                summary={post.summary}
+                regDt={post.regDt}
+              />
+            ))
+          }
+        </ul>
+      </div>
     </div>
   );
 };

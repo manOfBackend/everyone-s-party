@@ -6,7 +6,7 @@ declare global {
     cpId: number;
     imageUrl: string;
     contentUrl: string;
-    reqDt: number;
+    regDt: number;
     modiDt: number;
     status: string;
     summary: string;
