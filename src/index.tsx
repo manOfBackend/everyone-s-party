@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { HistoryRouter as Router } from 'redux-first-history/rr6';
 import App from './App';
 import { history, Store } from './Redux';
+import './index.css';
 
 const container = document.getElementById('root');
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

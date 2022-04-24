@@ -15,7 +15,6 @@ const Board = () => {
         }}
       >
         눌러보세요.
-
       </button>
     </div>
   );

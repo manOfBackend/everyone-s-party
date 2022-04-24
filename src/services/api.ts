@@ -1,7 +1,7 @@
 import REQUEST_URL from '@src/constants/requestUrl';
 import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 
-axios.defaults.baseURL = 'http://127.0.0.1:3000';
+axios.defaults.baseURL = `http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`;
 
 const isAxiosError = (error: AxiosError): error is AxiosError => error.isAxiosError;
 
