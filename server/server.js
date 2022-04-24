@@ -3,12 +3,15 @@ const server = jsonServer.create();
 const path = require('path');
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
 const middlewares = jsonServer.defaults();
+const PROJECT_ROOT = path.resolve(__dirname, '../');
+const dotenv = require('dotenv').config({ path: path.resolve(PROJECT_ROOT, 'config', '.env') });
+
+const { SERVER_PORT } = dotenv.parsed;
 
 server.use(middlewares);
 server.use(router);
 
 router.render = function (req, res) {
-  console.log(req._parsedUrl, '');
   if (req._parsedUrl.pathname === '/posts') {
     res.jsonp({
       posts: res.locals.data,
@@ -17,7 +20,6 @@ router.render = function (req, res) {
     res.jsonp(res.locals.data);
   }
 };
-
-server.listen(3000, () => {
+server.listen(SERVER_PORT || 3000, () => {
   console.log('JSON Server is running');
 });
