@@ -3,10 +3,8 @@ declare global {
     posts: Post[];
   }
   interface LoginResponseBody {
-    login: {
-      id: string;
-      pw: string;
-    }[];
+    isLogin: boolean;
+    message: string;
   }
 }
 

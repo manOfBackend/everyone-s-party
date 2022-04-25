@@ -5,8 +5,8 @@ declare global {
     keyword?: string;
   }
   interface LoginRequestBody {
-    id?: string;
-    pw?: string;
+    id: string;
+    pw: string;
   }
 }
 
