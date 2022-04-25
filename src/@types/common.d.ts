@@ -13,6 +13,10 @@ declare global {
     searchId: string;
     commentCnt: number;
   }
+  interface User {
+    id: string;
+    pw: string;
+  }
 }
 
 export {};

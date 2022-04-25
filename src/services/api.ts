@@ -22,7 +22,7 @@ const request = async (config: AxiosRequestConfig) => {
 };
 
 const API = {
-  posts: (data: PostsRequestBody): Promise<PostsResponseBody> => request({ method: 'GET', url: REQUEST_URL.POSTS, params: { _page: data.page } }),
-  login: (data: LoginRequestBody): Promise<LoginResponseBody> => request({ method: 'GET', url: REQUEST_URL.LOGIN, params: { _id: data.id, _pw: data.pw } }),
+  posts: (data: PostsRequestBody): Promise<PostsResponseBody> => request({ method: 'GET', url: REQUEST_URL.POSTS, params: { page: data.page } }),
+  login: (data: LoginRequestBody): Promise<LoginResponseBody> => request({ method: 'POST', url: REQUEST_URL.LOGIN, data }),
 };
 export default API;
