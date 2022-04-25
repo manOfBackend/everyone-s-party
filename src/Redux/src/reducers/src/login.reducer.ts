@@ -22,7 +22,7 @@ const loginReducer = createReducer<LoginStore, ActionType<typeof Actions.loginAc
   .handleAction(Actions.loginActions.fetchLogin.success, (state, { payload }) => ({
     ...state,
     loading: false,
-    account: payload.account,
+    isLogin: payload,
   }));
 
 export default loginReducer;

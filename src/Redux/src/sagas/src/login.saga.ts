@@ -10,7 +10,7 @@ function* fetchLoginSaga({ payload }: { payload: LoginRequestBody }) {
 
   try {
     const response: LoginResponseBody = yield call(API.login, payload);
-    yield put(fetchLogin.success(response.login.filter((item) => item.id === payload.id && item.pw === payload.pw).length > 0));
+    yield put(fetchLogin.success(response.isLogin));
   } catch (error) {
     yield put(fetchLogin.failure(401));
   }
