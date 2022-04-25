@@ -1,9 +1,9 @@
 import { createAsyncAction } from 'typesafe-actions';
 
 export const fetchLogin = createAsyncAction(
-  '@@LOGIN/FETCH_REQUEST',
-  '@@LOGIN/FETCH_SUCCESS',
-  '@@LOGIN/FETCH_FAILURE',
+  '@@LOGIN/LOGIN_REQUEST',
+  '@@LOGIN/LOGIN_SUCCESS',
+  '@@LOGIN/LOGIN_FAILURE',
 )<LoginRequestBody, boolean, number>();
 
 export default {
