@@ -38,6 +38,12 @@ module.exports = {
     extensions: ['.js', '.ts', '.jsx', '.tsx'],
     alias: {
       '@src': SRC_PATH,
+      '@Redux': path.resolve(SRC_PATH, 'Redux'),
+      '@components': path.resolve(SRC_PATH, 'components'),
+      '@pages': path.resolve(SRC_PATH, 'pages'),
+      '@mocks': path.resolve(SRC_PATH, 'mocks'),
+      '@constants': path.resolve(SRC_PATH, 'constants'),
+      '@services': path.resolve(SRC_PATH, 'services'),
     },
   },
   plugins: [

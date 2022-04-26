@@ -1,4 +1,3 @@
-import Post from '@src/components/atoms/Post';
 import PostList from '@src/components/molecules/PostList';
 import { useDispatch, useSelector } from '@src/Redux';
 import React, { useEffect } from 'react';

@@ -18,6 +18,12 @@
     "jsx": "react-jsx",
     "paths": {
       "@src/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@Redux/*": ["./src/Redux/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@mocks/*": ["./src/mocks/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@services/*": ["./src/services/*"],
       "public/*": ["./public/*"]
     }
   },
