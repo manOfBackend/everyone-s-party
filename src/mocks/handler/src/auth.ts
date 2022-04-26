@@ -5,6 +5,7 @@ const users: User[] = [
     id: 'test1',
     pw: '1234',
   },
+  { id: 'parkyw1206', pw: '1111' },
 ];
 
 const login = rest.post<LoginRequestBody, PathParams, LoginResponseBody>(
@@ -27,7 +28,7 @@ const login = rest.post<LoginRequestBody, PathParams, LoginResponseBody>(
       message = '비밀번호가 일치하지 않습니다.';
     }
     return res(
-      ctx.status(200),
+      ctx.status(500),
       ctx.json({
         status: 200,
         message,

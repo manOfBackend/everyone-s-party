@@ -1,12 +1,25 @@
 import './index.css';
-import { Actions, useDispatch } from '@src/Redux';
-import React, { useState } from 'react';
+import { Actions, useDispatch, useSelector } from '@src/Redux';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [id, setId] = useState('');
   const [pw, setPW] = useState('');
+  const loginResult = useSelector((state) => state.loginReducer.isLogin);
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    if (loginResult === true) {
+      alert('성공적으로 로그인 되었습니다.');
+      navigate('/board');
+    } else if (loginResult === false) {
+      alert('아이디와 비밀번호가 다릅니다.');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loginResult]);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center flex-col">
