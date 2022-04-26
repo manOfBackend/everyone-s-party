@@ -4,5 +4,5 @@
 ## How to run
 ```
   yarn install
-  yarn test
+  yarn dev
 ```
