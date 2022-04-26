@@ -1,4 +1,4 @@
-import Post from '@src/components/atoms/Post';
+import Post from '@components/atoms/Post';
 import React from 'react';
 
 interface PostListProps {

@@ -1,7 +1,7 @@
 import PostList from '@src/components/molecules/PostList';
 import { useDispatch, useSelector } from '@src/Redux';
 import React, { useEffect } from 'react';
-import Actions from '../../Redux/src/actions';
+import Actions from '@Redux/src/actions';
 
 const Board = () => {
   const posts = useSelector((state) => state.postReducer.posts) || [];
