@@ -1,8 +1,6 @@
 /* eslint-disable max-len */
 import API from '@src/services/api';
-import {
-  call, fork, put, takeEvery,
-} from 'redux-saga/effects';
+import { call, fork, put, takeEvery } from 'redux-saga/effects';
 import Actions from '../../actions';
 
 function* fetchLoginSaga({ payload }: { payload: LoginRequestBody }) {

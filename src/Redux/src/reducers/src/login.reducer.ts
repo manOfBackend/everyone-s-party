@@ -3,11 +3,8 @@ import Actions from '../../actions';
 
 export interface LoginStore {
   loading: boolean;
-  account?: {
-    id: string;
-    pw: string;
-  }[];
   error?: string;
+  isLogin?: boolean;
 }
 
 const initialState: LoginStore = {
@@ -15,7 +12,9 @@ const initialState: LoginStore = {
 };
 
 // eslint-disable-next-line max-len
-const loginReducer = createReducer<LoginStore, ActionType<typeof Actions.loginActions>>(initialState)
+const loginReducer = createReducer<LoginStore, ActionType<typeof Actions.loginActions>>(
+  initialState
+)
   .handleAction(Actions.loginActions.fetchLogin.request, () => ({
     loading: true,
   }))
@@ -23,6 +22,10 @@ const loginReducer = createReducer<LoginStore, ActionType<typeof Actions.loginAc
     ...state,
     loading: false,
     isLogin: payload,
+  }))
+  .handleAction(Actions.loginActions.fetchLogin.failure, () => ({
+    loading: true,
+    isLogin: false,
   }));
 
 export default loginReducer;

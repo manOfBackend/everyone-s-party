@@ -5,30 +5,34 @@ const users: User[] = [
     id: 'test1',
     pw: '1234',
   },
+  { id: 'parkyw1206', pw: '1111' },
 ];
 
-const login = rest.post<LoginRequestBody, PathParams, LoginResponseBody>('/login', (req, res, ctx) => {
-  const { id, pw } = req.body;
+const login = rest.post<LoginRequestBody, PathParams, LoginResponseBody>(
+  '/login',
+  (req, res, ctx) => {
+    const { id, pw } = req.body;
 
-  if (users.find((user) => user.id === id && user.pw === pw)) {
+    if (users.find((user) => user.id === id && user.pw === pw)) {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          status: 200,
+          message: 'login success',
+          isLogin: true,
+        })
+      );
+    }
     return res(
-      ctx.status(200),
+      ctx.status(500),
       ctx.json({
-        status: 200,
-        message: 'login success',
-        isLogin: true,
-      }),
+        status: 500,
+        message: '로그인에 실패했습니다.',
+        isLogin: false,
+      })
     );
   }
-  return res(
-    ctx.status(500),
-    ctx.json({
-      status: 500,
-      message: '로그인에 실패했습니다.',
-      isLogin: false,
-    }),
-  );
-});
+);
 
 export default {
   login,
