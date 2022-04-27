@@ -2,6 +2,7 @@ import './index.css';
 import { Actions, useDispatch, useSelector } from '@src/Redux';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,10 +15,10 @@ const Login = () => {
 
   useEffect(() => {
     if (loginResult === true) {
-      alert('성공적으로 로그인 되었습니다.');
+      toast.success('성공적으로 로그인 되었습니다.');
       navigate('/board');
     } else if (errorMsg) {
-      alert(errorMsg);
+      toast.error(errorMsg);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginResult, errorMsg]);
