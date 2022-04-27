@@ -13,18 +13,21 @@ const initialState: LoginStore = {
 
 // eslint-disable-next-line max-len
 const loginReducer = createReducer<LoginStore, ActionType<typeof Actions.loginActions>>(
-  initialState
+  initialState,
 )
   .handleAction(Actions.loginActions.fetchLogin.request, () => ({
     loading: true,
   }))
   .handleAction(Actions.loginActions.fetchLogin.success, (state, { payload }) => ({
     ...state,
+    error: '',
     loading: false,
     isLogin: payload,
   }))
-  .handleAction(Actions.loginActions.fetchLogin.failure, () => ({
-    loading: true,
+  .handleAction(Actions.loginActions.fetchLogin.failure, (state, { payload }) => ({
+    ...state,
+    error: payload.message,
+    loading: false,
     isLogin: false,
   }));
 

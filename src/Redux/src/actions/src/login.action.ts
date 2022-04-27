@@ -4,7 +4,7 @@ export const fetchLogin = createAsyncAction(
   '@@LOGIN/LOGIN_REQUEST',
   '@@LOGIN/LOGIN_SUCCESS',
   '@@LOGIN/LOGIN_FAILURE',
-)<LoginRequestBody, boolean, number>();
+)<LoginRequestBody, boolean, RequestValidationError>();
 
 export default {
   fetchLogin,
