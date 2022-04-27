@@ -12,7 +12,6 @@ const login = rest.post<LoginRequestBody, PathParams, LoginResponseBody>(
   '/login',
   (req, res, ctx) => {
     const { id, pw } = req.body;
-
     let message = '';
     let isLogin = false;
     const registeredUser = users.find((user) => user.id === id);
@@ -28,14 +27,14 @@ const login = rest.post<LoginRequestBody, PathParams, LoginResponseBody>(
       message = '비밀번호가 일치하지 않습니다.';
     }
     return res(
-      ctx.status(500),
+      ctx.status(200),
       ctx.json({
         status: 200,
         message,
         isLogin,
-      }),
+      })
     );
-  },
+  }
 );
 
 export default {
