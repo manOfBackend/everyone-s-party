@@ -4,7 +4,7 @@ declare global {
   }
   interface LoginResponseBody {
     isLogin: boolean;
-    message: string;
+    message?: string;
   }
 }
 

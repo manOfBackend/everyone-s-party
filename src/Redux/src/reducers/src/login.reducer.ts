@@ -9,24 +9,25 @@ export interface LoginStore {
 
 const initialState: LoginStore = {
   loading: false,
+  error: '',
 };
 
 // eslint-disable-next-line max-len
 const loginReducer = createReducer<LoginStore, ActionType<typeof Actions.loginActions>>(
-  initialState
+  initialState,
 )
   .handleAction(Actions.loginActions.fetchLogin.request, () => ({
     loading: true,
   }))
   .handleAction(Actions.loginActions.fetchLogin.success, (state, { payload }) => ({
     ...state,
-    error: '',
+    error: payload.isLogin ? '' : payload.message,
     loading: false,
-    isLogin: payload,
+    isLogin: payload.isLogin,
   }))
   .handleAction(Actions.loginActions.fetchLogin.failure, (state, { payload }) => ({
     ...state,
-    error: payload.message,
+    error: '',
     loading: false,
     isLogin: false,
   }));

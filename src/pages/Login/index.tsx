@@ -10,16 +10,17 @@ const Login = () => {
   const [id, setId] = useState('');
   const [pw, setPW] = useState('');
   const loginResult = useSelector((state) => state.loginReducer.isLogin);
+  const errorMsg = useSelector((state) => state.loginReducer.error);
 
   useEffect(() => {
     if (loginResult === true) {
       alert('성공적으로 로그인 되었습니다.');
       navigate('/board');
-    } else if (loginResult === false) {
-      alert('아이디와 비밀번호가 다릅니다.');
+    } else if (errorMsg) {
+      alert(errorMsg);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loginResult]);
+  }, [loginResult, errorMsg]);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center flex-col">

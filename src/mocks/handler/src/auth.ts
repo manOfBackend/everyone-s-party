@@ -32,9 +32,9 @@ const login = rest.post<LoginRequestBody, PathParams, LoginResponseBody>(
         status: 200,
         message,
         isLogin,
-      })
+      }),
     );
-  }
+  },
 );
 
 export default {
