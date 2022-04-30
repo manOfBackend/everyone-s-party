@@ -13,6 +13,9 @@
   },
   "homepage": "https://github.com/manOfBackend/react-redux-saga-practice#readme",
   "dependencies": {
+    "@emotion/css": "^11.9.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@reduxjs/toolkit": "^1.8.1",
     "@types/react-redux": "^7.1.24",
     "axios": "^0.26.1",
