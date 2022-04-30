@@ -20,7 +20,7 @@ const MenuBar = ({ menus }: MenuBarProps) => {
   }, [menus]);
   return (
     <div className="flex">
-            {...menusWithPadding}
+      {menusWithPadding.map((m) => m)}
     </div>
   );
 };

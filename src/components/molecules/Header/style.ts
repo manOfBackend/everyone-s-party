@@ -5,12 +5,15 @@ export const HeaderStyled = styled.header`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    position: fixed;
-    top: 0px;
     justify-content: center;
     background-color: ${({ theme }) => theme.color.white};
 `;
 
+export const HeaderWrapper = styled.div`
+  padding: 0px 20px;
+  width: 100%;
+  max-width: 640px;
+`;
 export const BottomLine = styled.div`
     width: 100%;
     height: 1px;
