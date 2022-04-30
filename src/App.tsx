@@ -4,6 +4,9 @@ import Board from '@pages/Board';
 import Login from '@pages/Login';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from '@emotion/react';
+import theme from './App.style';
+import Main from './pages/Main';
 
 const App = () => (
   <>
@@ -11,11 +14,13 @@ const App = () => (
       position="top-center"
       autoClose={5000}
     />
-    <ReactRouterRoutes>
-      <Route path="/" element={<Board />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="*" element={<Navigate replace to="/" />} />
-    </ReactRouterRoutes>
+    <ThemeProvider theme={theme}>
+      <ReactRouterRoutes>
+        <Route path="/" element={<Main />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
+      </ReactRouterRoutes>
+    </ThemeProvider>
   </>
 );
 
