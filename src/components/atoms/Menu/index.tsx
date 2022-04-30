@@ -3,13 +3,13 @@ import RowDivider from '../RowDivider';
 import { MenuContainer, MenuSelectedLine, MenuText } from './style';
 
 interface MenuProps {
-  title: string;
-  isSelected: boolean;
+  children: React.ReactNode;
+  isSelected?: boolean;
 }
-const Menu = ({ title, isSelected }: MenuProps) => (
+const Menu = ({ children, isSelected = false }: MenuProps) => (
   <MenuContainer>
     <MenuText>
-      {title}
+      {children}
     </MenuText>
     <RowDivider height="6px" />
     { isSelected && <MenuSelectedLine /> }
