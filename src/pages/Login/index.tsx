@@ -1,27 +1,12 @@
+import { Actions, useDispatch } from '@src/Redux';
+import React, { useState } from 'react';
 import './index.css';
-import { Actions, useDispatch, useSelector } from '@src/Redux';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [id, setId] = useState('');
   const [pw, setPW] = useState('');
-  const loginResult = useSelector((state) => state.loginReducer.isLogin);
-  const errorMsg = useSelector((state) => state.loginReducer.error);
-
-  useEffect(() => {
-    if (loginResult === true) {
-      toast.success('성공적으로 로그인 되었습니다.');
-      navigate('/board');
-    } else if (errorMsg) {
-      toast.error(errorMsg);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loginResult, errorMsg]);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center flex-col">
