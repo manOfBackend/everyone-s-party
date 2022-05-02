@@ -9,7 +9,7 @@ const Login = () => {
 
   const [id, setId] = useState('');
   const [pw, setPW] = useState('');
-  
+
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
       <div className="p-8 w-full max-w-2xl">
@@ -51,7 +51,7 @@ const Login = () => {
           <div
             className="kakao-button"
             onClick={() => {
-              dispatch(Actions.loginActions.fetchLogin.request({ id, pw }));
+              alert('아직 준비중입니다 T_T');
             }}
           >
             카카오로 시작하기
