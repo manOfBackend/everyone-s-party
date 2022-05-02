@@ -1,22 +1,23 @@
+import ColumnDivider from '@src/components/atoms/ColumnDivider';
 import Menu from '@src/components/atoms/Menu';
 import RowDivider from '@src/components/atoms/RowDivider';
-import React from 'react';
+import React, { useMemo } from 'react';
 import MenuBar from '../MenuBar';
 import {
   HeaderStyled, BottomLine, ButtonContainer, TopMenu, HeaderWrapper,
 } from './style';
 
 interface HeaderProps {
-  buttons: React.ReactNode[];
+  button: React.ReactNode;
 }
 
-const Header = ({ buttons }: HeaderProps) => (
+const Header = ({ button }: HeaderProps) => (
   <HeaderStyled>
     <HeaderWrapper>
       <RowDivider height="16px" />
       <TopMenu>
-        <ButtonContainer>
-          {buttons.map((Btn) => Btn)}
+        <ButtonContainer className="gap-10">
+          {button}
         </ButtonContainer>
       </TopMenu>
       <RowDivider height="20px" />
