@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Actions, useDispatch } from '@src/Redux';
-import React, { useState } from 'react';
+import { Actions, useDispatch, useSelector } from '@src/Redux';
+import React, { useEffect, useState } from 'react';
 import './index.css';
 
 const Login = () => {
@@ -10,6 +10,7 @@ const Login = () => {
   const [id, setId] = useState('');
   const [pw, setPW] = useState('');
 
+  const checkIdAndPWRegex = () => id.length >= 5 && id.length <= 16 && pw.length >= 4 && pw.length <= 16;
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
       <div className="p-8 w-full max-w-2xl">
@@ -43,8 +44,8 @@ const Login = () => {
             />
           </div>
           <div
-            className={id.length < 3 ? 'login-button' : 'login-button--dis'}
-            onClick={() => (id.length >= 3 ? dispatch(Actions.loginActions.fetchLogin.request({ id, pw })) : '')}
+            className={checkIdAndPWRegex() ? 'login-button' : 'login-button--dis'}
+            onClick={() => (checkIdAndPWRegex() ? dispatch(Actions.loginActions.fetchLogin.request({ id, pw })) : '')}
           >
             로그인
           </div>
