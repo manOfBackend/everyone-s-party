@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Actions, useDispatch, useSelector } from '@src/Redux';
-import React, { useEffect, useState } from 'react';
+import { Actions, useDispatch } from '@src/Redux';
+import React, { useState } from 'react';
 import './index.css';
 
 const Login = () => {
@@ -10,12 +10,15 @@ const Login = () => {
   const [id, setId] = useState('');
   const [pw, setPW] = useState('');
 
-  const checkIdAndPWRegex = () => id.length >= 5 && id.length <= 16 && pw.length >= 4 && pw.length <= 16;
+  const checkIdAndPWRegex = () => {
+    const isValid = id.length >= 5 && id.length <= 16 && pw.length >= 4 && pw.length <= 16;
+    return isValid;
+  };
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
       <div className="p-8 w-full max-w-2xl">
-        <div className="header">
-          <button type="button" className="backbtn">
+        <div className="h-14">
+          <button type="button" className="w-6 h-6 rounded-lg  cursor-pointer hover:brightness-95 ">
             뒤
           </button>
         </div>
@@ -44,13 +47,13 @@ const Login = () => {
             />
           </div>
           <div
-            className={checkIdAndPWRegex() ? 'login-button' : 'login-button--dis'}
+            className={['w-full flex items-center h-12 rounded-lg border-none cursor-pointer justify-center mt-40 hover:brightness-95 ', checkIdAndPWRegex() ? 'text-white bg-teal-200' : 'text-neutral-200 bg-neutral-200'].join()}
             onClick={() => (checkIdAndPWRegex() ? dispatch(Actions.loginActions.fetchLogin.request({ id, pw })) : '')}
           >
             로그인
           </div>
           <div
-            className="kakao-button"
+            className="'w-full flex items-center h-12 rounded-lg border-none cursor-pointer justify-center mt-5 hover:brightness-95 text-neutral-600 bg-yellow-300 "
             onClick={() => {
               alert('아직 준비중입니다 T_T');
             }}
