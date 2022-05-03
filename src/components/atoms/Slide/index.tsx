@@ -13,7 +13,6 @@ const Slide = () => (
       <img alt="img7" src="https://asset.pickle.plus/images/img_content6.webp" style={{ width: '302px', height: '170px', margin: '0px 10px' }} />
       <img alt="img8" src="https://asset.pickle.plus/images/img_content7.webp" style={{ width: '302px', height: '170px', margin: '0px 10px' }} />
       <img alt="img9" src="https://asset.pickle.plus/images/img_content8.webp" style={{ width: '302px', height: '170px', margin: '0px 10px' }} />
-      <img alt="img10" src="https://asset.pickle.plus/images/img_content9.webp" style={{ width: '302px', height: '170px', margin: '0px 10px' }} />
     </SlideAnimationBox>
   </SlideContainer>
 );
