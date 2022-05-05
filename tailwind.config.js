@@ -1,7 +1,11 @@
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamiliy:{
+        'sqop':['SpoqaHanSansNeo'],
+      }
+    },
   },
   plugins: [],
 };

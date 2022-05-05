@@ -31,7 +31,7 @@ const Login = () => {
               id="id"
               value={id}
               onChange={(e) => setId(e.target.value)}
-              className="inputField"
+              className="border-0 m-0 p-0 caret-gray-400 h-11 w-full rounded-none border-b-2 outline-0 border-stone-200 font-sqop text-left focus:border-teal-200"
               placeholder="아이디를 입력해주세요."
             />
           </div>
@@ -42,7 +42,7 @@ const Login = () => {
               id="pw"
               value={pw}
               onChange={(e) => setPW(e.target.value)}
-              className="inputField"
+              className="border-0 m-0 p-0 caret-gray-400 h-11 w-full rounded-none border-b-2 outline-0 border-stone-200 font-sqop text-left focus:border-teal-200"
               placeholder="비밀번호를 입력해주세요."
             />
           </div>
@@ -53,7 +53,7 @@ const Login = () => {
             로그인
           </div>
           <div
-            className="'w-full flex items-center h-12 rounded-lg border-none cursor-pointer justify-center mt-5 hover:brightness-95 text-neutral-600 bg-yellow-300 "
+            className="'w-full flex items-center h-12 rounded-lg border-none cursor-pointer justify-center mt-5 hover:brightness-95 text-neutral-600 bg-yellow-300 text-base"
             onClick={() => {
               alert('아직 준비중입니다 T_T');
             }}
