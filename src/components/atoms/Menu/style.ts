@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/css';
 
 export const MenuContainer = styled.div`
     align-items: center;
@@ -12,7 +11,7 @@ export const MenuText = styled.div<{ isSelected: boolean }>`
     line-height: 20px;
     margin: 0px;
     padding: 0px 4px;
-    ${({ isSelected }) => isSelected && css`font-weight: bold`};
+    ${({ isSelected }) => isSelected && 'font-weight: bold;'}
     color: ${({ theme }) => theme.color.gray800};
     cursor: pointer;
 `;
