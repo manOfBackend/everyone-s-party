@@ -1,34 +1,74 @@
+import Button from '@src/components/atoms/Button';
 import Menu from '@src/components/atoms/Menu';
 import RowDivider from '@src/components/atoms/RowDivider';
-import React from 'react';
+import React, { memo } from 'react';
+import { useLocation } from 'react-router';
 import MenuBar from '../MenuBar';
 import {
-  HeaderStyled, BottomLine, ButtonContainer, TopMenu, HeaderWrapper,
+  BottomLine, ButtonContainer, HeaderStyled, HeaderWrapper, TopMenu,
 } from './style';
 
-interface HeaderProps {
-  buttons: React.ReactNode[];
+interface ButtonInfo {
+  text: string;
+  onClick?: () => void;
 }
 
-const Header = ({ buttons }: HeaderProps) => (
-  <HeaderStyled>
-    <HeaderWrapper>
-      <RowDivider height="16px" />
-      <TopMenu>
-        <ButtonContainer>
-          {buttons.map((Btn) => Btn)}
-        </ButtonContainer>
-      </TopMenu>
-      <RowDivider height="20px" />
-      <MenuBar menus={[
-        <Menu isSelected>홈</Menu>,
-        <Menu>파티 추가</Menu>,
-        <Menu>MY 파티</Menu>,
-        <Menu>가이드</Menu>]}
-      />
-    </HeaderWrapper>
-    <BottomLine />
-  </HeaderStyled>
-);
+interface MenuInfo {
+  text: string;
+  pathname: string;
+}
 
-export default Header;
+const buttons: ButtonInfo[] = [{
+  text: '로그인',
+}];
+
+const menus: MenuInfo[] = [{
+  text: '홈',
+  pathname: '/',
+},
+{
+  text: '파티 추가',
+  pathname: '/addParty',
+},
+{
+  text: 'MY 파티',
+  pathname: '/my-party',
+},
+{
+  text: '가이드',
+  pathname: '/guide',
+},
+];
+
+const Header = () => {
+  const location = useLocation();
+  return (
+    <HeaderStyled>
+      <HeaderWrapper>
+        <RowDivider height="16px" />
+        <TopMenu>
+          <ButtonContainer className="gap-10">
+            {buttons.map((btn) => (
+              <Button key={btn.text}>{btn.text}</Button>
+            ))}
+          </ButtonContainer>
+        </TopMenu>
+        <RowDivider height="20px" />
+        <MenuBar>
+          {menus.map((m) => (
+            <Menu
+              key={m.text}
+              pathname={m.pathname}
+              isSelected={location.pathname.startsWith(m.pathname)}
+            >
+              {m.text}
+            </Menu>
+          ))}
+        </MenuBar>
+      </HeaderWrapper>
+      <BottomLine />
+    </HeaderStyled>
+  );
+};
+
+export default memo(Header);
