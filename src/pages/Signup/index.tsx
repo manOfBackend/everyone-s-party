@@ -15,11 +15,10 @@ const Signup = () => {
     errorMsg: '',
   });
   const checkIdAndPWRegex = () => {
-    const isValid =
-      userInfo.id.length >= 5 &&
-      userInfo.id.length <= 16 &&
-      userInfo.pw.length >= 4 &&
-      userInfo.pw.length <= 16;
+    const isValid = userInfo.id.length >= 5
+      && userInfo.id.length <= 16
+      && userInfo.pw.length >= 4
+      && userInfo.pw.length <= 16;
     return isValid;
   };
   const submitNewInfo = () => {

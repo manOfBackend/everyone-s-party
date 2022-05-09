@@ -8,6 +8,11 @@ declare global {
     id: string;
     pw: string;
   }
+  interface SignupRequestBody {
+    id: string;
+    pw: string;
+    name: string;
+  }
 }
 
 export {};
