@@ -10,6 +10,10 @@ const Signup = () => {
     pw2: '',
     name: '',
   });
+  const [error, setError] = useState({
+    errorType: '',
+    errorMsg: '',
+  });
   const checkIdAndPWRegex = () => {
     const isValid =
       userInfo.id.length >= 5 &&
@@ -18,7 +22,14 @@ const Signup = () => {
       userInfo.pw.length <= 16;
     return isValid;
   };
-
+  const submitNewInfo = () => {
+    if (userInfo.pw !== userInfo.pw2) {
+      setError({ errorType: 'pw2', errorMsg: '비밀번호와 다릅니다. 다시 입력해주세요.' });
+      return;
+    }
+    setError({ errorType: '', errorMsg: '' });
+    // submit!
+  };
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
       <div className="p-8 w-full max-w-2xl">
@@ -72,13 +83,18 @@ const Signup = () => {
               className="inputField"
               placeholder="비밀번호를 다시 입력해주세요."
             />
+            {error && error.errorType === 'pw2' ? (
+              <div className="text-red-500 h-3.5">{error.errorMsg}</div>
+            ) : (
+              <div className="h-3.5" />
+            )}
           </div>
           <div
             className={[
               'w-full flex items-center h-12 rounded-lg border-none cursor-pointer justify-center mt-40 hover:brightness-95 ',
               checkIdAndPWRegex() ? 'text-white bg-teal-200' : 'text-neutral-200 bg-neutral-200',
             ].join()}
-            onClick={() => {}}
+            onClick={() => submitNewInfo()}
           >
             확인
           </div>
