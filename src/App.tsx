@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navigate, Route, Routes as ReactRouterRoutes } from 'react-router-dom';
-import Board from '@pages/Board';
 import Login from '@pages/Login';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

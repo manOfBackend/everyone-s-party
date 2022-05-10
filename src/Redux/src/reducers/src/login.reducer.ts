@@ -29,6 +29,7 @@ const loginReducer = createReducer<LoginStore, ActionType<typeof Actions.loginAc
     ...state,
     error: '',
     loading: false,
+    message: payload.message,
     isLogin: false,
   }));
 
