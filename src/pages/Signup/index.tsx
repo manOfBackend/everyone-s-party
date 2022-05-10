@@ -2,8 +2,11 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // import { Actions, useDispatch } from '@src/Redux';
 import React, { useState } from 'react';
+import { Actions, useDispatch } from '@src/Redux';
 
 const Signup = () => {
+  const dispatch = useDispatch();
+
   const [userInfo, setUserInfo] = useState({
     id: '',
     pw: '',
@@ -27,7 +30,8 @@ const Signup = () => {
       return;
     }
     setError({ errorType: '', errorMsg: '' });
-    // submit!
+    // eslint-disable-next-line max-len
+    dispatch(Actions.signupActions.fetchSignup.request({ id: userInfo.id, pw: userInfo.pw, name: userInfo.name }));
   };
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
@@ -54,7 +58,7 @@ const Signup = () => {
             <span className="mr-8">이름</span>
             <input
               type="text"
-              id="id"
+              id="name"
               value={userInfo.name}
               onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
               className="inputField"
@@ -76,7 +80,7 @@ const Signup = () => {
             <span className="mr-1">비밀번호 재 입력</span>
             <input
               type="password"
-              id="pw"
+              id="pw2"
               value={userInfo.pw2}
               onChange={(e) => setUserInfo({ ...userInfo, pw2: e.target.value })}
               className="inputField"

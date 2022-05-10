@@ -40,20 +40,16 @@ const login = rest.post<LoginRequestBody, PathParams, LoginResponseBody>(
 const signup = rest.post<SignupRequestBody, PathParams, SignupResponseBody>(
   '/signup',
   (req, res, ctx) => {
-    const { id, pw } = req.body;
+    const { id } = req.body;
     let message = '';
     let isSuccess = false;
     const registeredUser = users.find((user) => user.id === id);
 
-    if (registeredUser === undefined) {
-      message = '존재하지 않는 아이디입니다.';
-    }
-
-    if (registeredUser && registeredUser.pw === pw) {
-      isSuccess = true;
-      message = '로그인 성공';
+    if (registeredUser !== undefined) {
+      message = '존재하는 아이디입니다.';
     } else {
-      message = '비밀번호가 일치하지 않습니다.';
+      isSuccess = true;
+      message = '회원 가입 성공';
     }
     return res(
       ctx.status(200),

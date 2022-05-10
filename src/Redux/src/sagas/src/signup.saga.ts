@@ -15,7 +15,7 @@ function* fetchSignupSaga({ payload }: { payload: SignupRequestBody }) {
     if (response.isSuccess) {
       yield put(fetchSignup.success(response));
     } else {
-      yield put(fetchSignup.failure({ message: '인증 실패', status: 401 }));
+      yield put(fetchSignup.failure({ message: response.message ? response.message : '인증 실패', status: 401 }));
     }
   } catch (error) {
     yield put(fetchSignup.failure({ message: JSON.stringify(error), status: 500 }));
@@ -29,7 +29,7 @@ function* fetchSignupSuccessSaga({ payload }: { payload: SignupResponseBody }) {
 function* fetchSignupFailureSaga({ payload }: { payload: RequestValidationError }) {
   const { message } = payload;
   yield alert(message);
-  yield put(push('/login'));
+  yield put(push('/signup'));
 }
 
 function* onFetchRequestWatcher() {
