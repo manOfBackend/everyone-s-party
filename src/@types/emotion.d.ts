@@ -6,6 +6,7 @@ declare module '@emotion/react' {
       gray100: string;
       gray600: string;
       gray800: string;
+      primary500: string;
     }
   }
 }
