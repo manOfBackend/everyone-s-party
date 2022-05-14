@@ -9,7 +9,6 @@ export interface LoginStore {
 
 const initialState: LoginStore = {
   loading: false,
-  error: '',
 };
 
 // eslint-disable-next-line max-len

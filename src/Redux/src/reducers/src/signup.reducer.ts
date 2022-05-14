@@ -8,7 +8,6 @@ export interface SingupStore {
 
 const initialState: SingupStore = {
   loading: false,
-  error: '',
 };
 
 // eslint-disable-next-line max-len
