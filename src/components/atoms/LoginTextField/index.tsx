@@ -9,7 +9,9 @@ interface MenuProps {
   placeholder: string;
   onchange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const LoginTextField = ({ value, id, name, onchange, placeholder }: MenuProps) => (
+const LoginTextField = ({
+  value, id, name, onchange, placeholder,
+}: MenuProps) => (
   <LoginDiv>
     <LoginSpan className="mr-8">{name}</LoginSpan>
     <LoginInput type="text" id={id} value={value} onChange={onchange} placeholder={placeholder} />
