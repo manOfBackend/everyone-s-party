@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/css';
 import { TextField } from '@material-ui/core';
 
 export const LoginDiv = styled.div`
@@ -26,5 +25,10 @@ export const LoginInput = styled(TextField)`
   line-height: 28px;
   text-align: left;
   color: #b0b6be;
+  .Mui-focused:after {
+    border-bottom: 2px solid #53E3AC !important;
+  }
+  
 `;
+
 export default {};

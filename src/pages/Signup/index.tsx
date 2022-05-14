@@ -2,11 +2,10 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // import { Actions, useDispatch } from '@src/Redux';
-import React, { useState } from 'react';
+import React from 'react';
 import { Actions, useDispatch } from '@src/Redux';
 import { Form, Formik, FormikProps } from 'formik';
 import * as Yup from 'yup';
-import { TextField } from '@material-ui/core';
 import LoginTextField from '@src/components/atoms/LoginTextField';
 
 interface SignupFormValue {
@@ -19,26 +18,25 @@ interface SignupFormValue {
 const Signup = () => {
   const dispatch = useDispatch();
 
-  const validationSchema = () =>
-    Yup.object().shape({
-      id: Yup.string()
-        .min(4, ({ min }) => `비밀번호는 최소 ${min}글자 이상입니다.`)
-        .max(16, ({ max }) => `비밀번호는 최소 ${max}글자 이상입니다.`)
-        .required('아이디를 입력해주세요.'),
-      pw: Yup.string()
-        .min(4, ({ min }) => `비밀번호는 최소 ${min}글자 이상입니다.`)
-        .max(16, ({ max }) => `비밀번호는 최소 ${max}글자 이상입니다.`)
-        .required('비밀번호를 입력하세요.'),
-      pw2: Yup.string()
-        .min(4, ({ min }) => `비밀번호는 최소 ${min}글자 이상입니다.`)
-        .max(16, ({ max }) => `비밀번호는 최소 ${max}글자 이상입니다.`)
-        .required('비밀번호를 입력하세요.'),
-      name: Yup.string()
-        .min(1, ({ min }) => `이름은 최소 ${min}글자 이상입니다.`)
-        .max(10, ({ max }) => `이름은 최소 ${max}글자 이상입니다.`)
-        .matches(/(([A-Za-z])\w+)/)
-        .required('이름을 입력하세요.'),
-    });
+  const validationSchema = () => Yup.object().shape({
+    id: Yup.string()
+      .min(4, ({ min }) => `비밀번호는 최소 ${min}글자 이상입니다.`)
+      .max(16, ({ max }) => `비밀번호는 최소 ${max}글자 이상입니다.`)
+      .required('아이디를 입력해주세요.'),
+    pw: Yup.string()
+      .min(4, ({ min }) => `비밀번호는 최소 ${min}글자 이상입니다.`)
+      .max(16, ({ max }) => `비밀번호는 최소 ${max}글자 이상입니다.`)
+      .required('비밀번호를 입력하세요.'),
+    pw2: Yup.string()
+      .min(4, ({ min }) => `비밀번호는 최소 ${min}글자 이상입니다.`)
+      .max(16, ({ max }) => `비밀번호는 최소 ${max}글자 이상입니다.`)
+      .required('비밀번호를 입력하세요.'),
+    name: Yup.string()
+      .min(1, ({ min }) => `이름은 최소 ${min}글자 이상입니다.`)
+      .max(10, ({ max }) => `이름은 최소 ${max}글자 이상입니다.`)
+      .matches(/(([A-Za-z])\w+)/)
+      .required('이름을 입력하세요.'),
+  });
 
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
@@ -71,7 +69,7 @@ const Signup = () => {
                   id: values.id,
                   pw: values.pw,
                   name: values.id,
-                })
+                }),
               );
             }}
           >
