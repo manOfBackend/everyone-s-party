@@ -12,10 +12,10 @@ interface MenuProps {
 const LoginTextField = ({
   value, id, name, onchange, placeholder,
 }: MenuProps) => (
-  <LoginDiv>
-    <LoginSpan className="mr-8">{name}</LoginSpan>
+  <div className="mt-2.5">
+    <span className="mr-8">{name}</span>
     <LoginInput type="text" id={id} value={value} onChange={onchange} placeholder={placeholder} />
-  </LoginDiv>
+  </div>
 );
 
 export default LoginTextField;

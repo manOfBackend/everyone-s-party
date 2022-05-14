@@ -1,5 +1,4 @@
 import React from 'react';
-import RowDivider from '../RowDivider';
 import { SubmitBtn } from './style';
 
 interface MenuProps {

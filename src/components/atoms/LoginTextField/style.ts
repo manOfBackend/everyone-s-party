@@ -1,12 +1,6 @@
 import styled from '@emotion/styled';
 import { TextField } from '@material-ui/core';
 
-export const LoginDiv = styled.div`
-  margin-top: 10px;
-`;
-export const LoginSpan = styled.span`
-  margin-right: 8px;
-`;
 export const LoginInput = styled(TextField)`
   border-top: 0px;
   border-right: 0px;
