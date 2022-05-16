@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Form, Formik, FormikProps } from 'formik';
 import * as Yup from 'yup';
 import LoginTextField from '@src/components/atoms/LoginTextField';
-import SubmitButton from '@src/components/atoms/SubmitButton';
+import ButtonCTA from '@src/components/atoms/ButtonCTA';
 
 interface LoginFormValue {
   id: string;
@@ -33,6 +33,7 @@ const Login = () => {
           <button type="button" className="w-6 h-6 rounded-lg  cursor-pointer hover:brightness-95 ">
             뒤
           </button>
+          {/* <ButtonCTA key="뒤">뒤</ButtonCTA> */}
         </div>
         <div className="mt-10 h-4/5">
           <span className="text-xl font-bold">아이디와 비밀번호를 적어주세요.</span>
@@ -76,15 +77,19 @@ const Login = () => {
                 />
                 {touched.pw && errors.pw && <div className="text-red-400">{errors.pw}</div>}
                 <div className="mt-40">
-                  <SubmitButton title="로그인" color="rgb(153,246,228)" textColor="white" handleSubmit={handleSubmit} />
-                  <SubmitButton
-                    title="카카오톡으로 로그인"
-                    color="rgb(253,224,71)"
-                    textColor="rgb(82,82,82)"
-                    handleSubmit={() => {
-                      alert('아직 준비중입니다 T_T');
-                    }}
-                  />
+                  <ButtonCTA type="submit" btnColor="rgb(153,246,228)" textColor="white" handleSubmit={handleSubmit}>로그인</ButtonCTA>
+                  <div className="mt-10">
+                    <ButtonCTA
+                      type="button"
+                      btnColor="rgb(253,224,71)"
+                      textColor="rgb(82,82,82)"
+                      onClick={() => {
+                        alert('아직 준비중입니다 T_T');
+                      }}
+                    >
+                      카카오톡으로 로그인
+                    </ButtonCTA>
+                  </div>
                 </div>
 
               </Form>

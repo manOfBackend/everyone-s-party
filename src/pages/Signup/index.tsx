@@ -130,6 +130,3 @@ const Signup = () => {
 };
 
 export default Signup;
-function id(id: any) {
-  throw new Error('Function not implemented.');
-}

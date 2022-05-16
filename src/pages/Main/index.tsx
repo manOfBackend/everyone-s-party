@@ -14,7 +14,7 @@ const Main = () => (
       <IntroTitle />
       <People />
       <Slide />
-      <ButtonCTA>
+      <ButtonCTA width="231px">
         시작하기
       </ButtonCTA>
     </div>

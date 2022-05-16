@@ -1,6 +1,5 @@
 import React from 'react';
-import RowDivider from '../RowDivider';
-import { LoginInput, LoginSpan, LoginDiv } from './style';
+import { LoginInput } from './style';
 
 interface MenuProps {
   name: string;
