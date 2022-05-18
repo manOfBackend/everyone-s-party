@@ -37,6 +37,32 @@ const login = rest.post<LoginRequestBody, PathParams, LoginResponseBody>(
   },
 );
 
+const signup = rest.post<SignupRequestBody, PathParams, SignupResponseBody>(
+  '/signup',
+  (req, res, ctx) => {
+    const { id } = req.body;
+    let message = '';
+    let isSuccess = false;
+    const registeredUser = users.find((user) => user.id === id);
+
+    if (registeredUser !== undefined) {
+      message = '존재하는 아이디입니다.';
+    } else {
+      isSuccess = true;
+      message = '회원 가입 성공';
+    }
+    return res(
+      ctx.status(200),
+      ctx.json({
+        status: 200,
+        message,
+        isSuccess,
+      }),
+    );
+  },
+);
+
 export default {
   login,
+  signup,
 };

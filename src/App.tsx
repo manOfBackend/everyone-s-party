@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Route, Routes as ReactRouterRoutes } from 'react-router-dom';
 import Login from '@pages/Login';
+import Signup from '@pages/Signup';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Global, ThemeProvider } from '@emotion/react';
@@ -9,10 +10,7 @@ import Main from './pages/Main';
 
 const App = () => (
   <>
-    <ToastContainer
-      position="top-center"
-      autoClose={5000}
-    />
+    <ToastContainer position="top-center" autoClose={5000} />
     <ThemeProvider theme={theme}>
       <Global
         styles={[
@@ -29,6 +27,7 @@ const App = () => (
       <ReactRouterRoutes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </ReactRouterRoutes>
     </ThemeProvider>

@@ -1,18 +1,22 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Actions, useDispatch } from '@src/Redux';
+// import { Actions, useDispatch } from '@src/Redux';
 import React from 'react';
+import { Actions, useDispatch } from '@src/Redux';
 import { Form, Formik, FormikProps } from 'formik';
 import * as Yup from 'yup';
 import LoginTextField from '@src/components/molecules/LoginTextField';
 import ButtonCTA from '@src/components/atoms/ButtonCTA';
 
-interface LoginFormValue {
+interface SignupFormValue {
   id: string;
   pw: string;
+  pw2: string;
+  name: string;
 }
 
-const Login = () => {
+const Signup = () => {
   const dispatch = useDispatch();
 
   const validationSchema = () => Yup.object().shape({
@@ -24,6 +28,15 @@ const Login = () => {
       .min(4, ({ min }) => `비밀번호는 최소 ${min}글자 이상입니다.`)
       .max(16, ({ max }) => `비밀번호는 최소 ${max}글자 이상입니다.`)
       .required('비밀번호를 입력하세요.'),
+    pw2: Yup.string()
+      .min(4, ({ min }) => `비밀번호는 최소 ${min}글자 이상입니다.`)
+      .max(16, ({ max }) => `비밀번호는 최소 ${max}글자 이상입니다.`)
+      .required('비밀번호를 입력하세요.'),
+    name: Yup.string()
+      .min(1, ({ min }) => `이름은 최소 ${min}글자 이상입니다.`)
+      .max(10, ({ max }) => `이름은 최소 ${max}글자 이상입니다.`)
+      .matches(/(([A-Za-z])\w+)/)
+      .required('이름을 입력하세요.'),
   });
 
   return (
@@ -33,21 +46,30 @@ const Login = () => {
           <button type="button" className="w-6 h-6 rounded-lg  cursor-pointer hover:brightness-95 ">
             뒤
           </button>
-          {/* <ButtonCTA key="뒤">뒤</ButtonCTA> */}
         </div>
         <div className="mt-10 h-4/5">
-          <span className="text-xl font-bold">아이디와 비밀번호를 적어주세요.</span>
+          <span className="text-xl font-bold">회원 정보를 입력해주세요.</span>
           <Formik
             initialValues={{
               id: '',
               pw: '',
+              pw2: '',
+              name: '',
             }}
             validationSchema={validationSchema}
-            onSubmit={(values: LoginFormValue) => {
+            validate={(values) => {
+              const errors = {} as { id: string; name: string; pw: string; pw2: string };
+              if (values.pw !== values.pw2) {
+                errors.pw2 = '암호가 일치하지 않습니다. 다시 입력해주십시오.';
+              }
+              return errors;
+            }}
+            onSubmit={(values: SignupFormValue) => {
               dispatch(
-                Actions.loginActions.fetchLogin.request({
+                Actions.signupActions.fetchSignup.request({
                   id: values.id,
                   pw: values.pw,
+                  name: values.id,
                 }),
               );
             }}
@@ -58,7 +80,7 @@ const Login = () => {
               handleSubmit,
               handleChange,
               values,
-            }: FormikProps<LoginFormValue>) => (
+            }: FormikProps<SignupFormValue>) => (
               <Form className="flex flex-col w-full">
                 <LoginTextField
                   name="아이디"
@@ -69,6 +91,14 @@ const Login = () => {
                 />
                 {touched.id && errors.id && <div className="text-red-400">{errors.id}</div>}
                 <LoginTextField
+                  name="이름"
+                  id="name"
+                  value={values.name}
+                  onchange={handleChange}
+                  placeholder="이름을 입력해주십세요"
+                />
+                {touched.name && errors.name && <div className="text-red-400">{errors.name}</div>}
+                <LoginTextField
                   name="비밀번호"
                   id="pw"
                   value={values.pw}
@@ -76,22 +106,19 @@ const Login = () => {
                   placeholder="비밀번호 입력해주십세요"
                 />
                 {touched.pw && errors.pw && <div className="text-red-400">{errors.pw}</div>}
+                <LoginTextField
+                  name="비밀번호 재 입력"
+                  id="pw2"
+                  value={values.pw2}
+                  onchange={handleChange}
+                  placeholder="비밀번호를 다시입력해주십세요"
+                />
+                {touched.pw2 && errors.pw2 && <div className="text-red-400">{errors.pw2}</div>}
                 <div className="mt-40">
-                  <ButtonCTA type="submit" btnColor="rgb(153,246,228)" textColor="white" onSubmit={handleSubmit}>로그인</ButtonCTA>
-                  <div className="mt-10">
-                    <ButtonCTA
-                      type="button"
-                      btnColor="rgb(253,224,71)"
-                      textColor="rgb(82,82,82)"
-                      onClick={() => {
-                        alert('아직 준비중입니다 T_T');
-                      }}
-                    >
-                      카카오톡으로 로그인
-                    </ButtonCTA>
-                  </div>
+                  <ButtonCTA type="submit" btnColor="rgb(153,246,228)" textColor="white" onSubmit={handleSubmit}>
+                    확인
+                  </ButtonCTA>
                 </div>
-
               </Form>
             )}
           </Formik>
@@ -101,4 +128,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

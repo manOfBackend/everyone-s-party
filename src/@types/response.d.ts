@@ -6,6 +6,10 @@ declare global {
     isLogin: boolean;
     message?: string;
   }
+  interface SignupResponseBody {
+    isSuccess: boolean;
+    message?: string;
+  }
 }
 
 export {};
