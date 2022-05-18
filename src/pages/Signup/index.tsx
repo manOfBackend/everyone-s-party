@@ -2,12 +2,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // import { Actions, useDispatch } from '@src/Redux';
-import React from 'react';
+import ButtonCTA from '@src/components/atoms/ButtonCTA';
+import LoginTextField from '@src/components/molecules/LoginTextField';
 import { Actions, useDispatch } from '@src/Redux';
 import { Form, Formik, FormikProps } from 'formik';
+import React from 'react';
 import * as Yup from 'yup';
-import LoginTextField from '@src/components/molecules/LoginTextField';
-import ButtonCTA from '@src/components/atoms/ButtonCTA';
 
 interface SignupFormValue {
   id: string;

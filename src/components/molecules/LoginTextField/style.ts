@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { TextField } from '@material-ui/core';
+// import { TextField } from '@material-ui/core';
 
 interface LoginTextFieldstyledProps {
   height: string;
@@ -7,7 +7,7 @@ interface LoginTextFieldstyledProps {
   focusColor?: string;
 }
 
-export const LoginInput = styled(TextField)<LoginTextFieldstyledProps>`
+export const LoginInput = styled.div<LoginTextFieldstyledProps>`
   border-top: 0px;
   border-right: 0px;
   border-left: 0px;
