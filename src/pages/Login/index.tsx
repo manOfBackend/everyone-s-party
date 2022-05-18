@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Actions, useDispatch } from '@src/Redux';
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Formik, FormikProps } from 'formik';
 import * as Yup from 'yup';
 import LoginTextField from '@src/components/molecules/LoginTextField';

@@ -1,7 +1,13 @@
 import styled from '@emotion/styled';
 import { TextField } from '@material-ui/core';
 
-export const LoginInput = styled(TextField)`
+interface LoginTextFieldstyledProps {
+  height: string;
+  width?: string;
+  focusColor?: string;
+}
+
+export const LoginInput = styled(TextField)<LoginTextFieldstyledProps>`
   border-top: 0px;
   border-right: 0px;
   border-left: 0px;
@@ -10,8 +16,8 @@ export const LoginInput = styled(TextField)`
   margin: 0px;
   padding: 0px;
   caret-color: #b0b6be;
-  height: 44px;
-  width: 100%;
+  height: ${({ height }) => height};
+  width: ${({ width }) => width};
   border-radius: 0px;
   font-family: SpoqaHanSansNeo;
   font-size: 16px;
@@ -20,7 +26,7 @@ export const LoginInput = styled(TextField)`
   text-align: left;
   color: #b0b6be;
   .Mui-focused:after {
-    border-bottom: 2px solid #53E3AC !important;
+    border-bottom: ${({ focusColor }) => `2px solid ${focusColor} !important`};
   }
   
 `;
