@@ -4,7 +4,7 @@ import {
 } from 'react-redux';
 import { RootState } from 'typesafe-actions';
 import isEqual from 'fast-deep-equal';
-import store from './store';
+import { store } from './store';
 
 export const useDispatch = () => useOriginDisaptch<typeof store['dispatch']>();
 

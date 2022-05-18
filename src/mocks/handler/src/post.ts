@@ -1521,9 +1521,9 @@ const getPosts = rest.get<PostsRequestBody, PathParams, PostsResponseBody>(
       ctx.json({
         status: 200,
         posts: filteredPosts,
-      })
+      }),
     );
-  }
+  },
 );
 
 export default {
