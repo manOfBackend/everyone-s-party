@@ -7,6 +7,7 @@ import { Actions, useDispatch } from '@src/Redux';
 import { Form, Formik, FormikProps } from 'formik';
 import * as Yup from 'yup';
 import LoginTextField from '@src/components/molecules/LoginTextField';
+import ButtonCTA from '@src/components/atoms/ButtonCTA';
 
 interface SignupFormValue {
   id: string;
@@ -113,13 +114,11 @@ const Signup = () => {
                   placeholder="비밀번호를 다시입력해주십세요"
                 />
                 {touched.pw2 && errors.pw2 && <div className="text-red-400">{errors.pw2}</div>}
-                <button
-                  className="w-full flex items-center h-12 rounded-lg border-none cursor-pointer justify-center mt-40 hover:brightness-95 text-white bg-teal-200"
-                  type="submit"
-                  onSubmit={() => handleSubmit()}
-                >
-                  확인
-                </button>
+                <div className="mt-40">
+                  <ButtonCTA type="submit" btnColor="rgb(153,246,228)" textColor="white" onSubmit={handleSubmit}>
+                    확인
+                  </ButtonCTA>
+                </div>
               </Form>
             )}
           </Formik>
