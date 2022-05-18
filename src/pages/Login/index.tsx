@@ -4,7 +4,7 @@ import { Actions, useDispatch } from '@src/Redux';
 import React, { useState } from 'react';
 import { Form, Formik, FormikProps } from 'formik';
 import * as Yup from 'yup';
-import LoginTextField from '@src/components/atoms/LoginTextField';
+import LoginTextField from '@src/components/molecules/LoginTextField';
 import ButtonCTA from '@src/components/atoms/ButtonCTA';
 
 interface LoginFormValue {

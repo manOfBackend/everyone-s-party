@@ -6,7 +6,7 @@ import React from 'react';
 import { Actions, useDispatch } from '@src/Redux';
 import { Form, Formik, FormikProps } from 'formik';
 import * as Yup from 'yup';
-import LoginTextField from '@src/components/atoms/LoginTextField';
+import LoginTextField from '@src/components/molecules/LoginTextField';
 
 interface SignupFormValue {
   id: string;
