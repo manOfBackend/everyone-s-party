@@ -77,7 +77,7 @@ const Login = () => {
                 />
                 {touched.pw && errors.pw && <div className="text-red-400">{errors.pw}</div>}
                 <div className="mt-40">
-                  <ButtonCTA type="submit" btnColor="rgb(153,246,228)" textColor="white" handleSubmit={handleSubmit}>로그인</ButtonCTA>
+                  <ButtonCTA type="submit" btnColor="rgb(153,246,228)" textColor="white" onSubmit={handleSubmit}>로그인</ButtonCTA>
                   <div className="mt-10">
                     <ButtonCTA
                       type="button"

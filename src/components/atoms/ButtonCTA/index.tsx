@@ -9,16 +9,16 @@ interface ButtonCTAProps {
   width?: string;
   btnColor?: string;
   textColor?: string;
-  handleSubmit?: (e?: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit?: (e?: React.FormEvent<HTMLFormElement>) => void;
   onClick?: (e?:React.DOMAttributes<HTMLButtonElement>)=>void;
   type?: 'button' | 'submit' | 'reset';
 }
 const ButtonCTA = ({
-  children, height = '50px', textSize = '16px', width, btnColor, textColor, handleSubmit, onClick, type,
+  children, height = '50px', textSize = '16px', width, btnColor, textColor, onSubmit, onClick, type,
 }: ButtonCTAProps) => (
   <ButtonCTAStyled
     type={type}
-    onSubmit={() => type === 'submit' && handleSubmit && handleSubmit()}
+    onSubmit={() => type === 'submit' && onSubmit && onSubmit()}
     onClick={() => onClick && onClick()}
     height={height}
     textSize={textSize}
