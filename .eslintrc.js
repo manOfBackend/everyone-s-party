@@ -16,6 +16,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    project: ["./tsconfig.json"],
     ecmaVersion: "latest",
     sourceType: "module",
   },
