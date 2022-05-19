@@ -7,7 +7,7 @@ interface LoginTextFieldstyledProps {
   focusColor?: string;
 }
 
-export const LoginInput = styled.div<LoginTextFieldstyledProps>`
+export const LoginInput = styled.input<LoginTextFieldstyledProps>`
   border-top: 0px;
   border-right: 0px;
   border-left: 0px;
@@ -19,16 +19,16 @@ export const LoginInput = styled.div<LoginTextFieldstyledProps>`
   height: ${({ height }) => height};
   width: ${({ width }) => width};
   border-radius: 0px;
+  border-bottom: 2px solid #b0b6be;
   font-family: SpoqaHanSansNeo;
   font-size: 16px;
   font-weight: normal;
   line-height: 28px;
   text-align: left;
   color: #b0b6be;
-  .Mui-focused:after {
+  &:focus {
     border-bottom: ${({ focusColor }) => `2px solid ${focusColor} !important`};
   }
-  
 `;
 
 export default {};
