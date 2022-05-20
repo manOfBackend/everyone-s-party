@@ -28,7 +28,7 @@ const menus: MenuInfo[] = [{
 },
 {
   text: '파티 추가',
-  pathname: '/addParty',
+  pathname: '/add-party',
 },
 {
   text: 'MY 파티',
@@ -59,7 +59,7 @@ const Header = () => {
             <Menu
               key={m.text}
               pathname={m.pathname}
-              isSelected={location.pathname.startsWith(m.pathname)}
+              isSelected={location.pathname === m.pathname}
             >
               {m.text}
             </Menu>
