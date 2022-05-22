@@ -1,7 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-// import { Actions, useDispatch } from '@src/Redux';
 import ButtonCTA from '@src/components/atoms/ButtonCTA';
 import LoginTextField from '@src/components/molecules/LoginTextField';
 import { Actions, useDispatch } from '@src/Redux';
