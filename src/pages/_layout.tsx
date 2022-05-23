@@ -1,4 +1,4 @@
-import { Global, ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react';
 import theme from '@src/App.style';
 import Header from '@src/components/molecules/Header';
 import React, { Suspense } from 'react';
