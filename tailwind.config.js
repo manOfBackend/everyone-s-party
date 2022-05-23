@@ -4,6 +4,9 @@ module.exports = {
     extend: {
       fontFamiliy:{
         'sqop':['SpoqaHanSansNeo'],
+      },
+      maxWidth: {
+        '4/5': '80%',
       }
     },
   },

@@ -17,10 +17,9 @@ module.exports = {
       jsx: true,
     },
     project: ["./tsconfig.json"],
-    ecmaVersion: "latest",
-    sourceType: "module",
   },
   plugins: ["prettier", "react", "@typescript-eslint"],
+  ignorePatterns: ['*.js'],
   rules: {
     "linebreak-style": 0,
     "consistent-return": "off",
@@ -36,9 +35,6 @@ module.exports = {
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
-      parserOptions: {
-        project: ["./tsconfig.json"],
-      },
     },
   ],
 };
