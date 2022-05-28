@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router';
 import AddParty from './pages/AddParty';
+import MyParty from './pages/MyParty';
 import Login from './pages/Login';
 import Main from './pages/Main';
 import Signup from './pages/Signup';
@@ -15,6 +16,7 @@ const routes = [
       { path: '/login', element: <Login />, index: true },
       { path: '/signup', element: <Signup />, index: true },
       { path: '/add-party', element: <AddParty />, index: true },
+      { path: '/my-party', element: <MyParty />, index: true },
       { path: '/', element: <Navigate replace to="/" />, index: true },
     ],
   },
