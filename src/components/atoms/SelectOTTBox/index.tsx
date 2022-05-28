@@ -47,7 +47,7 @@ const SelectOTTBox = () => {
 
   return (
 
-    <div className="flex flex-col justify-center gap-7 py-5 px-5 rounded-xl bg-white max-w-4/5 shadow-2xl">
+    <div className="flex flex-col justify-center gap-7 py-5 px-5 rounded-xl bg-white w-full max-w-4/5 shadow-2xl">
       <h4 className="font-bold">보고 싶은 OTT를 선택해주세요.</h4>
       <div className="flex gap-2 flex-wrap justify-between w-full">
         {Object.entries(logoMap).map(([name, { text, icon, isAvailableMatchingImmediately }]) => (
