@@ -4,6 +4,7 @@ import IconRocket from '@src/assets/resource/Rocket.png';
 import IconUp from '@src/assets/resource/up.png';
 import IconDown from '@src/assets/resource/down.png';
 import { DropBodyGrayBox } from './style';
+import RowDivider from '../../atoms/RowDivider';
 
 interface DropDownBoxProps {
   header: React.ReactNode;
@@ -29,7 +30,11 @@ const DropDownBox = ({ header, icon, downBody }: DropDownBoxProps) => {
           )}
         </div>
       </button>
-      {!showDropdown && <DropBodyGrayBox>{downBody}</DropBodyGrayBox>}
+      {showDropdown ? (
+        <RowDivider height="1px" className="bg-gray-200" />
+      ) : (
+        <DropBodyGrayBox>{downBody}</DropBodyGrayBox>
+      )}
     </div>
   );
 };
