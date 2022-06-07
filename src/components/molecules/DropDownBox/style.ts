@@ -7,7 +7,9 @@ export const DropBodyGrayBox = styled.div`
   transition: height 1s ease 0s;
   color: #454b53;
 `;
-
+export const DropDown = styled.div`
+  transition: height 0.3s ease-in 0s;
+`;
 export default {
   DropBodyGrayBox,
 };

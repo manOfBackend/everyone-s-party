@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import IconRocket from '@src/assets/resource/Rocket.png';
 import IconUp from '@src/assets/resource/up.png';
 import IconDown from '@src/assets/resource/down.png';
-import { DropBodyGrayBox } from './style';
+import { DropBodyGrayBox, DropDown } from './style';
 import RowDivider from '../../atoms/RowDivider';
 
 interface DropDownBoxProps {
@@ -12,9 +12,9 @@ interface DropDownBoxProps {
   downBody: React.ReactNode;
 }
 const DropDownBox = ({ header, icon, downBody }: DropDownBoxProps) => {
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(true);
   return (
-    <div>
+    <DropDown>
       <button
         type="button"
         className="flex w-full items-center cursor-pointer py-5"
@@ -35,7 +35,7 @@ const DropDownBox = ({ header, icon, downBody }: DropDownBoxProps) => {
       ) : (
         <DropBodyGrayBox>{downBody}</DropBodyGrayBox>
       )}
-    </div>
+    </DropDown>
   );
 };
 
